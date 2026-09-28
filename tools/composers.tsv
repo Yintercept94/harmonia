@@ -1,0 +1,75 @@
+# The people. One row per composer, tab-separated, and the source of truth for
+# every name the site prints, sorts by or filters on.
+#
+# It exists because the corpus arrives from two places that disagree. music21's
+# MusicXML has no composer field worth reading, so tools/works.tsv names people
+# by hand; When in Rome's RomanText headers carry whatever the analyst typed.
+# Between them the index once held "J.S. Bach" and "Bach", "Beethoven, Ludwig
+# van" and "L. van Beethoven", three spellings of Schubert and two of Johanna
+# Kinkel — 49 strings for 43 people, which makes a by-composer page impossible.
+#
+# Resolution is exact match against id, sort, display or one of the aliases,
+# after collapsing whitespace and case. It is never fuzzy: an unknown name is a
+# hard error naming the string, exactly as build_catalogue.py refuses to guess
+# at a corpus path missing from works.tsv. Add the alias instead.
+#
+# `sort` files the name as a library would — surname first, so van Beethoven is
+# under B. `display` is what a page prints. `period` is a judgement, and it is
+# here rather than derived from the year on purpose: all 413 Bach chorales carry
+# one placeholder year, and the When in Rome half's years come from a per-composer
+# guess table. A period read off those would be a guess about a guess.
+#
+# id	sort	display	period	born	died	nationality	aliases (| separated)
+
+# --- Renaissance ------------------------------------------------------------
+josquin	Josquin des Prez	Josquin des Prez	Renaissance	1450	1521	Franco-Flemish	Josquin
+palestrina	Palestrina, Giovanni Pierluigi da	Giovanni Pierluigi da Palestrina	Renaissance	1525	1594	Italian	G.P. da Palestrina|Palestrina
+
+# --- Baroque ----------------------------------------------------------------
+monteverdi	Monteverdi, Claudio	Claudio Monteverdi	Baroque	1567	1643	Italian	Monteverdi
+corelli	Corelli, Arcangelo	Arcangelo Corelli	Baroque	1653	1713	Italian	Corelli
+purcell	Purcell, Henry	Henry Purcell	Baroque	1659	1695	English	Purcell
+bach-js	Bach, Johann Sebastian	Johann Sebastian Bach	Baroque	1685	1750	German	J.S. Bach|Bach|JS Bach
+handel	Handel, George Frideric	George Frideric Handel	Baroque	1685	1759	German-English	G.F. Handel|Handel|Georg Friedrich Händel
+
+# --- Classical --------------------------------------------------------------
+bach-cpe	Bach, Carl Philipp Emanuel	C.P.E. Bach	Classical	1714	1788	German	CPE Bach
+haydn	Haydn, Joseph	Joseph Haydn	Classical	1732	1809	Austrian	Haydn|Haydn, Franz Joseph|Franz Joseph Haydn
+mozart	Mozart, Wolfgang Amadeus	Wolfgang Amadeus Mozart	Classical	1756	1791	Austrian	W.A. Mozart|Mozart
+paradis	Paradis, Maria Theresia von	Maria Theresia von Paradis	Classical	1759	1824	Austrian	
+beethoven	Beethoven, Ludwig van	Ludwig van Beethoven	Classical	1770	1827	German	L. van Beethoven|Beethoven
+
+# --- Romantic ---------------------------------------------------------------
+reichardt	Reichardt, Louise	Louise Reichardt	Romantic	1779	1826	German	
+weber	Weber, Carl Maria von	Carl Maria von Weber	Romantic	1786	1826	German	C.M. von Weber|Weber
+zumsteeg	Zumsteeg, Emilie	Emilie Zumsteeg	Romantic	1796	1857	German	
+schubert	Schubert, Franz	Franz Schubert	Romantic	1797	1828	Austrian	Schubert
+hensel	Hensel, Fanny (Mendelssohn)	Fanny Hensel	Romantic	1805	1847	German	Fanny (Mendelssohn) Hensel|Fanny Mendelssohn Hensel|Hensel
+chopin	Chopin, Frédéric	Frédéric Chopin	Romantic	1810	1849	Polish	Chopin
+schumann-r	Schumann, Robert	Robert Schumann	Romantic	1810	1856	German	
+kinkel	Kinkel, Johanna	Johanna Kinkel	Romantic	1810	1858	German	Johanna Kinkel (1846 edition originally published under the name J. Mathieux)|Johanna Kinkel (originally published under the name J. Mathieux)|J. Mathieux
+mayer	Mayer, Emilie	Emilie Mayer	Romantic	1812	1883	German	
+verdi	Verdi, Giuseppe	Giuseppe Verdi	Romantic	1813	1901	Italian	Verdi
+franz	Franz, Robert	Robert Franz	Romantic	1815	1892	German	
+lang	Lang, Josephine	Josephine Lang	Romantic	1815	1880	German	
+schumann-c	Schumann, Clara	Clara Schumann	Romantic	1819	1896	German	Clara Wieck
+viardot	Viardot, Pauline	Pauline Viardot	Romantic	1821	1910	French	Viardot-García, Pauline
+brahms	Brahms, Johannes	Johannes Brahms	Romantic	1833	1897	German	Brahms
+liliuokalani	Liliʻuokalani	Queen Liliʻuokalani	Romantic	1838	1917	Hawaiian	Liliuokalani
+jaell	Jaëll, Marie	Marie Jaëll	Romantic	1846	1925	French	
+holmes	Holmès, Augusta	Augusta Holmès	Romantic	1847	1903	French	Holmès, Augusta Mary Anne
+chausson	Chausson, Ernest	Ernest Chausson	Romantic	1855	1899	French	
+white	White, Maude Valérie	Maude Valérie White	Romantic	1855	1937	English	
+kralik	Kralik, Mathilde	Mathilde Kralik	Romantic	1857	1944	Austrian	Mathilde Kralik (Mathilde Aloisia Kralik von Meyrswalden)|Kralik von Meyrswalden, Mathilde
+chaminade	Chaminade, Cécile	Cécile Chaminade	Romantic	1857	1944	French	
+bonis	Bonis, Mel	Mel Bonis	Romantic	1858	1937	French	Mélanie Bonis (1858 - 1937)|Mélanie Bonis
+wolf	Wolf, Hugo	Hugo Wolf	Romantic	1860	1903	Austrian	
+mahler	Mahler, Gustav	Gustav Mahler	Romantic	1860	1911	Austrian	
+beach	Beach, Amy	Amy Beach	Romantic	1867	1944	American	Beach, Amy Marcy Cheney
+joplin	Joplin, Scott	Scott Joplin	Romantic	1868	1917	American	
+johnson-jr	Johnson, J. Rosamond	J. Rosamond Johnson	Romantic	1873	1954	American	
+coleridge-taylor	Coleridge-Taylor, Samuel	Samuel Coleridge-Taylor	Romantic	1875	1912	English	S. Coleridge-Taylor
+
+# --- Modern -----------------------------------------------------------------
+burleigh	Burleigh, Harry Thacker	Harry Thacker Burleigh	Modern	1866	1949	American	H.T. Burleigh
+schoenberg	Schoenberg, Arnold	Arnold Schoenberg	Modern	1874	1951	Austrian	Schönberg, Arnold|Arnold Schönberg

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.parcel-cache/
+bundle.html
+__pycache__/
+tools/_mxl/

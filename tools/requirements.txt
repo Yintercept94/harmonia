@@ -1,0 +1,10 @@
+# Rebuilding the app. music21 ships its own score corpus, so no downloads are needed,
+# and tools/rn/*.json is checked in, so the model is not required here.
+music21>=9.1
+verovio>=4.3
+
+# Re-predicting the Roman numerals (tools/predict_rn.py) needs these as well, plus
+# the AugmentedNet release: the source zip and AugmentedNet.hdf5 (~60 MB), unzipped
+# next to this project. Keras 3 cannot load the checkpoint; tf-keras is the legacy
+# layer that can.
+#   pip install tensorflow tf-keras mlflow

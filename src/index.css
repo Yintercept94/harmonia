@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+    /* light — chart surface #faf7f0, validated */
+    --paper: #faf7f0;
+    --paper-2: #f2ecdf;
+    --paper-3: #eae2d1;
+    --ink: #1a1714;
+    --ink-soft: #4a443c;
+    --ink-mute: #8a8074;
+    --rule: #d8d0c0;
+    --rule-strong: #bdb3a0;
+    --wash: rgba(26, 23, 20, 0.05);
+    --track: #e3dbcb;
+    --playhead: #b3341f; /* transport cue — never used for data */
+
+    --fn-t: #1f8a63;
+    --fn-pd: #1d6fbf;
+    --fn-d: #c25a24;
+    --fn-x: #8a8074;
+
+    /* Non-chord tone — noteheads only, never a ribbon. Violet because the four
+       function hues and the playhead have the rest of the wheel; 5.4:1 against
+       paper and 3:1 against ink, so it is a lighter mark as well as a different
+       one and the distinction survives greyscale. */
+    --nct: #7a4fb5;
+
+    /* Cadence (§5.3). Its own lane under the numerals, so it is never next to a
+       function colour, but magenta keeps it clear of all four anyway. 6.2:1. */
+    --cad: #a8286e;
+
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    /* dark — chart surface #14120f, re-stepped and validated (not a flip) */
+    --paper: #14120f;
+    --paper-2: #1d1a16;
+    --paper-3: #26221c;
+    --ink: #f2ede3;
+    --ink-soft: #bbb1a2;
+    --ink-mute: #857c6e;
+    --rule: #332e27;
+    --rule-strong: #4a4339;
+    --wash: rgba(242, 237, 227, 0.07);
+    --track: #2a251e;
+    --playhead: #e8603f;
+
+    --fn-t: #2ea87a;
+    --fn-pd: #4a90e2;
+    --fn-d: #d96f33;
+    --fn-x: #857c6e;
+    --nct: #a184e0;
+    --cad: #e57bb0;
+
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .smallcaps {
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.66rem;
+  }
+  .rule-t {
+    border-top: 1px solid var(--rule);
+  }
+  .rule-b {
+    border-bottom: 1px solid var(--rule);
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  /* Verovio's SVG carries no width or height, so it fills its slot. */
+  .engraved svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  /* The notation is painted over the ribbon so its noteheads can be pointed at,
+     which would otherwise swallow every click meant for the seek bar underneath.
+     Only the noteheads take the pointer; the rest of the layer is not there as
+     far as hit testing is concerned. */
+  .engraved {
+    pointer-events: none;
+  }
+  .engraved g.note {
+    pointer-events: all;
+    cursor: help;
+  }
+  .engraved g.note:hover {
+    color: var(--playhead);
+  }
+  /* Notes the harmony under them does not contain, marked by Score.tsx.
+     Verovio draws a notehead as a <use> of a glyph whose path sets no fill of
+     its own, so a fill here inherits all the way into the referenced outline —
+     which is why this needs no change to the engraving and no rebuild. Only
+     `fill`, deliberately: the hover rule above works by moving `currentColor`,
+     and setting a colour here as well would leave a non-chord tone the one note
+     on the page that does not answer the pointer.
+     The accidental goes with its notehead — left in ink it reads as a mistake
+     rather than as a different kind of note. */
+  .engraved g.note.nct .notehead,
+  .engraved g.note.nct .accid {
+    fill: var(--nct);
+  }
+}

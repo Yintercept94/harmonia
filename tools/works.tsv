@@ -1,0 +1,111 @@
+# The non-chorale part of the corpus: one row per work, tab-separated.
+#
+# Bach's chorales are generated — there are 413 of them and music21 ships a BWV
+# index — so they are not listed here. Everything else is, because music21's
+# MusicXML carries no usable title, opus or date: `work-title` is the filename
+# where it exists at all. This table is therefore the curation, not a patch on
+# top of one, and a corpus path that is not in it is skipped rather than guessed.
+#
+# Later sources will invert that. Humdrum kern carries !!!COM, !!!OTL and !!!ODT,
+# and OpenScore ships composers.tsv, so their catalogues will be derived and this
+# file will hold only corrections.
+#
+# `composer` is resolved through tools/composers.tsv and may be any name that
+# table knows; an unknown one is an error, not a new composer.
+#
+# The three metadata columns each do one job, which is why there are three of
+# them and not one `cat` string:
+#   genre       what kind of piece it is, from the vocabulary in composers.py
+#   collection  the parent work or set — the third level of the browse, so
+#               "Winterreise" gathers its songs and "String Quartet, Op. 18 no. 1"
+#               its movements. Empty for a piece that stands alone.
+#   catNo       the catalogue identifier, printed but never grouped on.
+# A movement's character name belongs in the title, after an em dash.
+#
+# `year` is the year of composition, not publication. `tempo` is a playback speed
+# in quarter-notes per minute chosen for listening — it is deliberately not the
+# composer's metronome mark, which the engraving prints where one exists.
+#
+# path	composer	title	genre	collection	catNo	year	tempo
+
+# --- Renaissance and Baroque ------------------------------------------------
+josquin/milleRegrets	Josquin des Prez	Mille regretz	Madrigal & chanson			1520	60
+palestrina/Agnus_02	Giovanni Pierluigi da Palestrina	Agnus Dei II	Mass & motet			1570	56
+monteverdi/madrigal.5.8	Claudio Monteverdi	Ferir quel petto, Silvio?	Madrigal & chanson	Madrigals, Book V	V, 8	1605	66
+corelli/opus3no1/1grave	Arcangelo Corelli	Trio Sonata op. 3 no. 1, i — Grave	Chamber	Trio Sonata, Op. 3 no. 1	Op. 3 no. 1	1689	50
+handel/rinaldo/Lascia_chio_pianga	George Frideric Handel	Lascia ch'io pianga	Opera & aria	Rinaldo	HWV 7	1711	50
+cpebach/h186	C.P.E. Bach	Solfeggietto-style keyboard piece	Piano piece		H. 186	1766	96
+
+# --- Haydn ------------------------------------------------------------------
+haydn/opus1no1/movement1	Joseph Haydn	String Quartet op. 1 no. 1, i — Presto	String quartet	String Quartet, Op. 1 no. 1	Op. 1 no. 1	1762	104
+haydn/opus1no1/movement2	Joseph Haydn	String Quartet op. 1 no. 1, ii — Menuet	String quartet	String Quartet, Op. 1 no. 1	Op. 1 no. 1	1762	120
+haydn/opus1no1/movement3	Joseph Haydn	String Quartet op. 1 no. 1, iii — Adagio	String quartet	String Quartet, Op. 1 no. 1	Op. 1 no. 1	1762	50
+haydn/opus1no1/movement4	Joseph Haydn	String Quartet op. 1 no. 1, iv — Menuet	String quartet	String Quartet, Op. 1 no. 1	Op. 1 no. 1	1762	120
+haydn/opus1no1/movement5	Joseph Haydn	String Quartet op. 1 no. 1, v — Finale	String quartet	String Quartet, Op. 1 no. 1	Op. 1 no. 1	1762	144
+haydn/opus74no1/movement1	Joseph Haydn	String Quartet op. 74 no. 1, i — Allegro moderato	String quartet	String Quartet, Op. 74 no. 1	Op. 74 no. 1	1793	112
+haydn/opus74no1/movement2	Joseph Haydn	String Quartet op. 74 no. 1, ii — Andantino grazioso	String quartet	String Quartet, Op. 74 no. 1	Op. 74 no. 1	1793	60
+haydn/opus74no1/movement3	Joseph Haydn	String Quartet op. 74 no. 1, iii — Menuetto	String quartet	String Quartet, Op. 74 no. 1	Op. 74 no. 1	1793	132
+haydn/opus74no1/movement4	Joseph Haydn	String Quartet op. 74 no. 1, iv — Vivace	String quartet	String Quartet, Op. 74 no. 1	Op. 74 no. 1	1793	144
+
+# --- Mozart -----------------------------------------------------------------
+mozart/k80/movement1	Wolfgang Amadeus Mozart	String Quartet K. 80, i — Adagio	String quartet	String Quartet, K. 80	K. 80	1770	50
+mozart/k80/movement2	Wolfgang Amadeus Mozart	String Quartet K. 80, ii — Allegro	String quartet	String Quartet, K. 80	K. 80	1770	132
+mozart/k80/movement3	Wolfgang Amadeus Mozart	String Quartet K. 80, iii — Menuetto	String quartet	String Quartet, K. 80	K. 80	1770	120
+mozart/k80/movement4	Wolfgang Amadeus Mozart	String Quartet K. 80, iv — Rondeau	String quartet	String Quartet, K. 80	K. 80	1770	120
+mozart/k155/movement1	Wolfgang Amadeus Mozart	String Quartet K. 155, i — Allegro	String quartet	String Quartet, K. 155	K. 155	1772	132
+mozart/k155/movement2	Wolfgang Amadeus Mozart	String Quartet K. 155, ii — Andante	String quartet	String Quartet, K. 155	K. 155	1772	60
+mozart/k155/movement3	Wolfgang Amadeus Mozart	String Quartet K. 155, iii — Molto allegro	String quartet	String Quartet, K. 155	K. 155	1772	152
+mozart/k156/movement1	Wolfgang Amadeus Mozart	String Quartet K. 156, i — Presto	String quartet	String Quartet, K. 156	K. 156	1772	112
+mozart/k156/movement2	Wolfgang Amadeus Mozart	String Quartet K. 156, ii — Adagio	String quartet	String Quartet, K. 156	K. 156	1772	56
+mozart/k156/movement3	Wolfgang Amadeus Mozart	String Quartet K. 156, iii — Tempo di Menuetto	String quartet	String Quartet, K. 156	K. 156	1772	120
+mozart/k156/movement4	Wolfgang Amadeus Mozart	String Quartet K. 156, iv — Adagio (early version)	String quartet	String Quartet, K. 156	K. 156	1772	56
+mozart/k458/movement1	Wolfgang Amadeus Mozart	String Quartet K. 458 “Hunt”, i — Allegro vivace assai	String quartet	String Quartet, K. 458 “Hunt”	K. 458	1784	120
+mozart/k458/movement2	Wolfgang Amadeus Mozart	String Quartet K. 458 “Hunt”, ii — Menuetto	String quartet	String Quartet, K. 458 “Hunt”	K. 458	1784	100
+mozart/k458/movement3	Wolfgang Amadeus Mozart	String Quartet K. 458 “Hunt”, iii — Adagio	String quartet	String Quartet, K. 458 “Hunt”	K. 458	1784	50
+mozart/k458/movement4	Wolfgang Amadeus Mozart	String Quartet K. 458 “Hunt”, iv — Allegro assai	String quartet	String Quartet, K. 458 “Hunt”	K. 458	1784	132
+mozart/k545/movement1_exposition	Wolfgang Amadeus Mozart	Piano Sonata K. 545, i — exposition	Piano sonata	Piano Sonata, K. 545	K. 545	1788	120
+
+# --- Beethoven --------------------------------------------------------------
+# music21 also ships op. 18 nos. 3-5, op. 74, op. 132 and the Grosse Fuge as
+# whole quartets in one file. They are left out on purpose: this site's unit is
+# a movement, and a four-movement file gets one title, one tempo for four
+# different ones, and a 150-system engraving. Two of the six also failed
+# validation on drifting anchors.
+beethoven/opus18no1/movement1	Ludwig van Beethoven	String Quartet op. 18 no. 1, i — Allegro con brio	String quartet	String Quartet, Op. 18 no. 1	Op. 18 no. 1	1799	120
+beethoven/opus18no1/movement2	Ludwig van Beethoven	String Quartet op. 18 no. 1, ii — Adagio affettuoso	String quartet	String Quartet, Op. 18 no. 1	Op. 18 no. 1	1799	56
+beethoven/opus18no1/movement3	Ludwig van Beethoven	String Quartet op. 18 no. 1, iii — Scherzo	String quartet	String Quartet, Op. 18 no. 1	Op. 18 no. 1	1799	152
+beethoven/opus18no1/movement4	Ludwig van Beethoven	String Quartet op. 18 no. 1, iv — Allegro	String quartet	String Quartet, Op. 18 no. 1	Op. 18 no. 1	1799	132
+beethoven/opus59no1/movement1	Ludwig van Beethoven	String Quartet op. 59 no. 1, i — Allegro	String quartet	String Quartet, Op. 59 no. 1	Op. 59 no. 1	1806	126
+beethoven/opus59no1/movement2	Ludwig van Beethoven	String Quartet op. 59 no. 1, ii — Allegretto vivace	String quartet	String Quartet, Op. 59 no. 1	Op. 59 no. 1	1806	116
+beethoven/opus59no1/movement3	Ludwig van Beethoven	String Quartet op. 59 no. 1, iii — Adagio molto e mesto	String quartet	String Quartet, Op. 59 no. 1	Op. 59 no. 1	1806	56
+beethoven/opus59no1/movement4	Ludwig van Beethoven	String Quartet op. 59 no. 1, iv — Thème russe	String quartet	String Quartet, Op. 59 no. 1	Op. 59 no. 1	1806	132
+beethoven/opus59no2/movement1	Ludwig van Beethoven	String Quartet op. 59 no. 2, i — Allegro	String quartet	String Quartet, Op. 59 no. 2	Op. 59 no. 2	1806	132
+beethoven/opus59no2/movement2	Ludwig van Beethoven	String Quartet op. 59 no. 2, ii — Molto adagio	String quartet	String Quartet, Op. 59 no. 2	Op. 59 no. 2	1806	54
+beethoven/opus59no2/movement3	Ludwig van Beethoven	String Quartet op. 59 no. 2, iii — Allegretto	String quartet	String Quartet, Op. 59 no. 2	Op. 59 no. 2	1806	120
+beethoven/opus59no2/movement4	Ludwig van Beethoven	String Quartet op. 59 no. 2, iv — Presto	String quartet	String Quartet, Op. 59 no. 2	Op. 59 no. 2	1806	152
+beethoven/opus59no3/movement1	Ludwig van Beethoven	String Quartet op. 59 no. 3, i — Andante — Allegro vivace	String quartet	String Quartet, Op. 59 no. 3	Op. 59 no. 3	1806	132
+beethoven/opus59no3/movement2	Ludwig van Beethoven	String Quartet op. 59 no. 3, ii — Andante con moto	String quartet	String Quartet, Op. 59 no. 3	Op. 59 no. 3	1806	92
+beethoven/opus59no3/movement3	Ludwig van Beethoven	String Quartet op. 59 no. 3, iii — Menuetto grazioso	String quartet	String Quartet, Op. 59 no. 3	Op. 59 no. 3	1806	120
+beethoven/opus59no3/movement4	Ludwig van Beethoven	String Quartet op. 59 no. 3, iv — Allegro molto	String quartet	String Quartet, Op. 59 no. 3	Op. 59 no. 3	1806	152
+
+# --- Nineteenth century -----------------------------------------------------
+schumann_clara/polonaise_op1n1	Clara Schumann	Polonaise op. 1 no. 1	Piano piece	Quatre polonaises, Op. 1	Op. 1 no. 1	1831	116
+schumann_clara/polonaise_op1n2	Clara Schumann	Polonaise op. 1 no. 2	Piano piece	Quatre polonaises, Op. 1	Op. 1 no. 2	1831	116
+schumann_clara/polonaise_op1n3	Clara Schumann	Polonaise op. 1 no. 3	Piano piece	Quatre polonaises, Op. 1	Op. 1 no. 3	1831	116
+schumann_clara/polonaise_op1n4	Clara Schumann	Polonaise op. 1 no. 4	Piano piece	Quatre polonaises, Op. 1	Op. 1 no. 4	1831	116
+schumann_clara/opus17/movement3	Clara Schumann	Piano Trio op. 17, iii — Andante	Chamber	Piano Trio, Op. 17	Op. 17	1846	60
+chopin/mazurka06-2	Frédéric Chopin	Mazurka op. 6 no. 2	Piano piece	Mazurkas, Op. 6	Op. 6 no. 2	1830	132
+schumann_robert/dichterliebe_no2	Robert Schumann	Aus meinen Tränen sprießen	Song	Dichterliebe	Op. 48 no. 2	1840	84
+schumann_robert/opus41no1/movement1	Robert Schumann	String Quartet op. 41 no. 1, i	String quartet	String Quartet, Op. 41 no. 1	Op. 41 no. 1	1842	96
+schumann_robert/opus41no1/movement2	Robert Schumann	String Quartet op. 41 no. 1, ii	String quartet	String Quartet, Op. 41 no. 1	Op. 41 no. 1	1842	144
+schumann_robert/opus41no1/movement3	Robert Schumann	String Quartet op. 41 no. 1, iii	String quartet	String Quartet, Op. 41 no. 1	Op. 41 no. 1	1842	60
+schumann_robert/opus41no1/movement4	Robert Schumann	String Quartet op. 41 no. 1, iv	String quartet	String Quartet, Op. 41 no. 1	Op. 41 no. 1	1842	132
+schumann_robert/opus41no1/movement5	Robert Schumann	String Quartet op. 41 no. 1, v	String quartet	String Quartet, Op. 41 no. 1	Op. 41 no. 1	1842	120
+schubert/Lindenbaum	Franz Schubert	Der Lindenbaum	Song	Winterreise	D. 911 no. 5	1827	84
+weber/concertino_clarinet	Carl Maria von Weber	Concertino for clarinet	Chamber		Op. 26	1811	104
+verdi/laDonnaEMobile	Giuseppe Verdi	La donna è mobile	Opera & aria	Rigoletto		1851	138
+liliuokalani/aloha_oe	Queen Liliʻuokalani	Aloha ʻOe	Song			1878	88
+beach/prayer_of_a_tired_child	Amy Beach	Prayer of a Tired Child	Song			1893	72
+joplin/maple_leaf_rag	Scott Joplin	Maple Leaf Rag	Piano piece			1899	152
+johnson_j_r/lift_every_voice	J. Rosamond Johnson	Lift Every Voice and Sing	Song			1900	96
+schoenberg/opus19/movement2	Arnold Schoenberg	Sechs kleine Klavierstücke, ii	Piano piece	Sechs kleine Klavierstücke, Op. 19	Op. 19 no. 2	1911	60
